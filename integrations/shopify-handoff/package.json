@@ -1,0 +1,37 @@
+{
+    "name": "@evolv-delivery/shopify-handoff",
+    "version": "0.5.1",
+    "description": "This integration sends shopify allocations from Evolv shopify through the cart page form.",
+    "main": "dist/index.js",
+    "files": [
+      "dist",
+      "README.md",
+      "LICENSE"
+    ],
+    "jest": {
+      "preset": "rollup-jest",
+      "testEnvironment": "jsdom"
+    },
+    "scripts": {
+      "build": "rollup --config rollup.config.mjs",
+      "watch": "rollup --config rollup.config.mjs --watch",
+      "test": "jest"
+    },
+    "author": "richard cowin",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/evolv-ai/shopify.git"
+    },
+    "homepage": "https://github.com/evolv-ai/shopify/integration",
+    "bugs": {
+      "url": "https://github.com/evolv-ai/shopify/issues"
+    },
+    "license": "ISC",
+    "devDependencies": {
+      "jest": "^29.7.0",
+      "rollup-jest": "^3.1.0",
+      "@rollup/plugin-terser": "^0.4.4"
+    }
+  }
+  
+  
