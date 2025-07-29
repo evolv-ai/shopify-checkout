@@ -1,0 +1,27 @@
+{
+  "name": "evol-poc2",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "shopify": "shopify",
+    "build": "shopify app build",
+    "dev": "shopify app dev",
+    "info": "shopify app info",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy"
+  },
+  "devDependencies": {
+    "@evolv-delivery/shopify-checkout": "^0.5.2"
+  },
+  "dependencies": {
+    "@shopify/ui-extensions-react": "^2025.7.1"
+  },
+  "trustedDependencies": [
+    "@shopify/plugin-cloudflare"
+  ],
+  "author": "richardcowin",
+  "private": true,
+  "workspaces": [
+    "extensions/*"
+  ]
+}
