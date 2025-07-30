@@ -1,6 +1,6 @@
 {
     "name": "@evolv-delivery/shopify-handoff",
-    "version": "0.5.1",
+    "version": "0.7.0",
     "description": "This integration sends shopify allocations from Evolv shopify through the cart page form.",
     "main": "dist/index.js",
     "files": [
