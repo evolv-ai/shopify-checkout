@@ -1,5 +1,5 @@
 
-function addAllocations(allocations){
+function sendAllocations(allocations){
     fetch('/cart/update.js', {
         method: 'POST',
         headers: {
@@ -9,12 +9,16 @@ function addAllocations(allocations){
         body: JSON.stringify({
             attributes: {evolv_allocations: allocations}
         })
-    }).then(data=>
-        console.info('successfully sent data to shopify', data)
-    ); 
+    })
+    .then(()=>{
+        console.info('Evolv handoff: successfully sent allocations to shopify');
+    })
+    .catch(()=>{
+        console.warn('Evolv handoff: failed to send allocations to shopify');
+    })
 }
 
-export function processGenomes(userId, environment){
+export function processShopifyAllocations(userId, environment){
     const allocationsUrl = `https://participants.evolv.ai/v1/${environment}/${userId}/allocations`
     fetch(allocationsUrl).then(response => response.json())
     .then(data => {
@@ -23,13 +27,11 @@ export function processGenomes(userId, environment){
                                 return {...e, environment, genome:other}
                               })
                               .filter(e=> Object.keys(e.genome).length > 0);
-        console.log('evolv genome:', allocations);
-        addAllocations(allocations);
+        sendAllocations(allocations);
     })
     .catch(error => {
-        console.error('Error with evolv genome retrieval:', error);
+        console.warn('Evolv handoff: Error with evolv genome retrieval:', error);
     });
-
 }
  
     

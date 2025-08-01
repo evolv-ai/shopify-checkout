@@ -1,45 +1,49 @@
 
-import { processGenomes } from './shopify-allocations.js'
+import { processShopifyAllocations } from './shopify-allocations.js'
 import { instrumentSpaEvent } from './spa.js'; 
 import { getDefaultEnv, getDefaultUid } from './util.js'; 
 
 const sessionKey = 'evolv:shopify-handoff';
 let cartPage = '/cart';
-let userId = getDefaultUid();
 let env = getDefaultEnv();
 
 function processConfig(config){
+    initializeOverrides(config)
+    checkPageActivation();
+    withPageChange(checkPageActivation);
+    // checkSessionStart();
+}
+
+function initializeOverrides(config){
     if (config?.environment){
         env = config?.environment;
     }
-
     if (config?.cart){
         cartPage = config?.cart;
     }
-
-    checkPageActivation();
-    withPageChange(checkPageActivation);
-    checkSessionStart();
 }
 
-function checkSessionStart(){
-    if (!sessionStorage.getItem(sessionKey)){
-        sendAllocations();
-    }
-}
+// function checkSessionStart(){
+//     if (!sessionStorage.getItem(sessionKey)){
+//         sendAllocations();
+//     }
+// }
 
 function checkPageActivation(){
-    if (new RegExp(cartPage, 'i').test(location.pathname)){
-        sendAllocations();
-    }
+    setTimeout(()=>{
+        if (new RegExp(cartPage, 'i').test(location.pathname)){
+            sendAllocations();
+        }
+    }, 50);
 }
 
 function sendAllocations(){
+    const userId = getDefaultUid() || localStorage.getItem('evolv:uid');
     if (userId && env) {
+        processShopifyAllocations(userId, env);
         sessionStorage.setItem(sessionKey, true);
-        processGenomes(userId, env);
     } else {
-        console.log('No data sent to shopify - no userId or env found');
+        console.log('No evolv allocations sent to shopify - no userId or env found');
     }
 }
 
