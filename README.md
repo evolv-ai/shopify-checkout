@@ -15,8 +15,8 @@ Allows retrieval and usage of evolv attributes at the checkout step itself, so y
 
 ```mermaid
 graph TD;
-    "Cart_Page"-->"Shopify Cart Attributes";
-    "Shopify Cart attributes"-->"Shopify Checkout";
+    CartPage-->ShopifyCartAttributes;
+    ShopifyCartAttributes-->ShopifyCheckout;
 ```
 
 
