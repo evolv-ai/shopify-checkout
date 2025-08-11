@@ -1,16 +1,6 @@
 
 
 
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-
 # Overview: Running an evolv.ai Test in the Shopify Checkout Process
 This expanded guide explains how to implement an evolv.ai experiment in the Shopify checkout process using two integrations: @evolv-delivery/shopify-handoff and @evolv-delivery/shopify-checkout.
 
@@ -20,6 +10,17 @@ Bridges evolv.ai allocation (variant) data from your experimentation platform in
 
 @evolv-delivery/shopify-checkout
 Allows retrieval and usage of evolv attributes at the checkout step itself, so you can personalize the checkout UI and functionality using experiment allocations.
+
+## Overview
+
+```mermaid
+graph TD;
+    Cart Page-()->Shopify Cart;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 
 ## Step-by-Step Instructions
 ### 1. Prerequisite Setup
