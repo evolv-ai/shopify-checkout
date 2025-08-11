@@ -31,8 +31,6 @@ Ability to install npm packages and inject custom scripts.
 ### 2. Install Both Packages
 Install both integrations in your project:
 
-bash
-npm install @evolv-delivery/shopify-handoff @evolv-delivery/shopify-checkout
 
 ### 3. Setting Up the Shopify Handoff Integration
 By default, this package monitors Shopify's cart page (/cart). If your cart uses a custom path, update the config.
