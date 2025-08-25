@@ -1,6 +1,6 @@
 
 const DataKey = "experiments.confirmations";
-const DataMessageType = "context.value.added";
+const DataMessageType = "context.initialized";
 const EventType = "confirmation";
 
 
@@ -31,25 +31,9 @@ function getAttributeValue(allocation, attributePath){
 function confirmExperiment(allocation){
     if (!allocation) return;
 
-    // fetch(eventUrl(allocation)).then(()=>
-    //     console.log('succesfully sent evolv event for confirmation')
-    // )
-
     fetch(dataUrl(allocation)).then(()=>
         console.log('succesfully sent evolv data for confirmation')
     )
-}
-
-function eventUrl(allocation){
-    const {cid, eid, uid, environment} = allocation;
-    const event = {
-        uid,
-        eid,
-        cid,
-        type: EventType
-    };
-
-    return `https://participants.evolv.ai/v1/${environment}/events?${encodeQueryParams(event)}`
 }
 
 function dataUrl(allocation){
