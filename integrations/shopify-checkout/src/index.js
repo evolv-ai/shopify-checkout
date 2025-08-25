@@ -1,6 +1,6 @@
 
 const DataKey = "experiments.confirmations";
-const DataMessageType = "context.value.added";
+const DataMessageType = "context.initialized";
 const EventType = "confirmation";
 
 
@@ -40,17 +40,17 @@ function confirmExperiment(allocation){
     )
 }
 
-function eventUrl(allocation){
-    const {cid, eid, uid, environment} = allocation;
-    const event = {
-        uid,
-        eid,
-        cid,
-        type: EventType
-    };
+// function eventUrl(allocation){
+//     const {cid, eid, uid, environment} = allocation;
+//     const event = {
+//         uid,
+//         eid,
+//         cid,
+//         type: EventType
+//     };
 
-    return `https://participants.evolv.ai/v1/${environment}/events?${encodeQueryParams(event)}`
-}
+//     return `https://participants.evolv.ai/v1/${environment}/events?${encodeQueryParams(event)}`
+// }
 
 function dataUrl(allocation){
     const {cid, uid, environment} = allocation;
