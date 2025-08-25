@@ -1,37 +1,35 @@
 {
     "name": "@evolv-delivery/shopify-checkout",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "description": "This integration retrieves attributes from through the cart page form.",
     "main": "dist/index.js",
     "files": [
-      "dist",
-      "README.md",
-      "LICENSE"
+        "dist",
+        "README.md",
+        "LICENSE"
     ],
     "jest": {
-      "preset": "rollup-jest",
-      "testEnvironment": "jsdom"
+        "preset": "rollup-jest",
+        "testEnvironment": "jsdom"
     },
     "scripts": {
-      "build": "rollup --config rollup.config.mjs",
-      "watch": "rollup --config rollup.config.mjs --watch",
-      "test": "jest"
+        "build": "rollup --config rollup.config.mjs",
+        "watch": "rollup --config rollup.config.mjs --watch",
+        "test": "jest"
     },
     "author": "richard cowin",
     "repository": {
-      "type": "git",
-      "url": "https://github.com/evolv-ai/shopify.git"
+        "type": "git",
+        "url": "https://github.com/evolv-ai/shopify.git"
     },
     "homepage": "https://github.com/evolv-ai/shopify/integration",
     "bugs": {
-      "url": "https://github.com/evolv-ai/shopify/issues"
+        "url": "https://github.com/evolv-ai/shopify/issues"
     },
     "license": "ISC",
     "devDependencies": {
-      "jest": "^29.7.0",
-      "rollup-jest": "^3.1.0",
-      "@rollup/plugin-terser": "^0.4.4"
+        "jest": "^29.7.0",
+        "rollup-jest": "^3.1.0",
+        "@rollup/plugin-terser": "^0.4.4"
     }
-  }
-  
-  
+}
