@@ -1,6 +1,6 @@
 {
     "name": "@evolv-delivery/shopify-checkout",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "description": "This integration retrieves attributes from through the cart page form.",
     "main": "dist/index.js",
     "files": [
